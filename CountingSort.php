@@ -12,12 +12,12 @@ function countingSort($arr) {
     $highest = max($arr);
     $freq_array = array();
     
-    for ($i = 0; $i < 100; $i++)
+    for ($i = 0; $i < $highest+1; $i++)
     {
         array_push($freq_array, 0);
     }
     
-    for($j=0; $j < 100; $j++)
+    for($j=0; $j < $highest+1; $j++)
     {
         $freq_array[$arr[$j]]++;   
     }

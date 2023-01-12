@@ -1,0 +1,32 @@
+class Solution {
+
+    /**
+     * @param Integer[][] $points
+     * @param Integer $k
+     * @return Integer[][]
+     */
+    function kClosest($points, $k) {
+        $length = count($points);
+        $euclds = array();
+        $max = array();
+       
+        for($i = 0; $i <= count($points)-1; $i++)
+        {
+            $square_sum = 0;
+            $keys = array_keys($points);
+            foreach($points[$keys[$i]] as $key => $value) {
+                 $square_sum = $square_sum + ($value * $value);
+                }
+            $eucld = sqrt($square_sum);
+            $euclds[$i] = $eucld;
+            $max_eucld = max($euclds);
+            if($euclds[$i] > $max_euclds)
+            {
+                $max[$i] = $points[$i];
+            }
+        }
+        print_r($max);
+        $output = array_slice($max, $k);
+        return $output;
+    }
+}
